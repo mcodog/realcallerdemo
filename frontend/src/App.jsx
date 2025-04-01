@@ -177,7 +177,7 @@ const CallButton = () => {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center min-h-screen font-sans transition-colors duration-300 ${
+      className={`flex flex-col items-center justify-center min-h-screen font-sans transition-colors duration-300 px-4 ${
         darkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-800"
       }`}
     >
@@ -196,7 +196,7 @@ const CallButton = () => {
 
       {/* Title */}
       <h1
-        className={`text-3xl font-bold mb-8 ${
+        className={`text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center ${
           darkMode ? "text-white" : "text-gray-800"
         }`}
       >
@@ -204,7 +204,7 @@ const CallButton = () => {
       </h1>
 
       {/* Robot Selection */}
-      <div className="mb-6">
+      <div className="mb-6 w-full max-w-md">
         <p
           className={`text-sm mb-2 ${
             darkMode ? "text-gray-300" : "text-gray-600"
@@ -212,12 +212,12 @@ const CallButton = () => {
         >
           Select an AI assistant:
         </p>
-        <div className="flex space-x-4">
+        <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
           {robots.map((robot) => (
             <button
               key={robot.assistantId}
               onClick={() => handleRobotChange(robot)}
-              className={`flex items-center px-4 py-2 rounded-lg transition-colors duration-200 ${
+              className={`flex items-center justify-center px-4 py-2 rounded-lg transition-colors duration-200 ${
                 selectedRobot.assistantId === robot.assistantId
                   ? darkMode
                     ? "bg-[#8053e0] text-white"
@@ -272,7 +272,7 @@ const CallButton = () => {
             >
               Property Type:
             </p>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {propertyTypes.map((type) => (
                 <button
                   key={type.id}
@@ -298,10 +298,10 @@ const CallButton = () => {
       )}
 
       {/* Call Button */}
-      <div className="text-center">
+      <div className="text-center w-full max-w- flex flex-col items-center justify-center">
         <button
           onClick={handleCall}
-          className={`flex items-center justify-center px-6 py-4 text-lg font-medium transition duration-300 ease-in-out transform rounded-full shadow-lg ${
+          className={`w-full sm:w-auto flex items-center justify-center px-6 py-4 text-lg font-medium transition duration-300 ease-in-out transform rounded-full shadow-lg ${
             isCalling
               ? "bg-red-500 hover:bg-red-600 text-white"
               : darkMode
